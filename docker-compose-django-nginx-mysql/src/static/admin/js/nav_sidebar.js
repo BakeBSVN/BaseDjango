@@ -21,7 +21,7 @@
         }
 
         const main = document.getElementById('main');
-        let navSidebarIsOpen = localStorage.getItem('django.admin.navSidebarIsOpen');
+        let navSidebarIsOpen = localStorage.getItem('src.admin.navSidebarIsOpen');
         if (navSidebarIsOpen === null) {
             navSidebarIsOpen = 'true';
         }
@@ -41,7 +41,7 @@
                 enableNavLinkTabbing();
                 enableNavFilterTabbing();
             }
-            localStorage.setItem('django.admin.navSidebarIsOpen', navSidebarIsOpen);
+            localStorage.setItem('src.admin.navSidebarIsOpen', navSidebarIsOpen);
             main.classList.toggle('shifted');
         });
     }
@@ -83,7 +83,7 @@
             } else {
                 event.target.classList.add('no-results');
             }
-            sessionStorage.setItem('django.admin.navSidebarFilterValue', filterValue);
+            sessionStorage.setItem('src.admin.navSidebarFilterValue', filterValue);
         }
 
         const nav = document.getElementById('nav-filter');
@@ -91,7 +91,7 @@
         nav.addEventListener('input', checkValue, false);
         nav.addEventListener('keyup', checkValue, false);
 
-        const storedValue = sessionStorage.getItem('django.admin.navSidebarFilterValue');
+        const storedValue = sessionStorage.getItem('src.admin.navSidebarFilterValue');
         if (storedValue) {
             nav.value = storedValue;
             checkValue({target: nav, key: ''});
